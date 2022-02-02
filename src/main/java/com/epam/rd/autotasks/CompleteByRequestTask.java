@@ -2,17 +2,33 @@ package com.epam.rd.autotasks;
 
 public class CompleteByRequestTask implements Task {
 
+    Task currentTask;
+    private int execute_pointer;
+
+    public CompleteByRequestTask() {
+    }
+
     @Override
     public void execute() {
-        throw new UnsupportedOperationException();
+        if (currentTask != null && !currentTask.isFinished()) {
+            currentTask.execute();
+        } else {
+            complete();
+        }
     }
 
     @Override
     public boolean isFinished() {
-        throw new UnsupportedOperationException();
+        if (currentTask == null)
+            return true;
+        else
+            execute_pointer++;
+        return false;
     }
 
     public void complete() {
-        throw new UnsupportedOperationException();
+        if (currentTask.isFinished() == true) {
+            currentTask.isFinished();
+        }
     }
 }
