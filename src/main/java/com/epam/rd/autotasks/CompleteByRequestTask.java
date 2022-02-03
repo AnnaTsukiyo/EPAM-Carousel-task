@@ -25,7 +25,6 @@ public class CompleteByRequestTask implements Task {
             execute_pointer++;
         return false;
     }
-
     public void complete() {
         if (currentTask.isFinished() == true) {
             currentTask.isFinished();

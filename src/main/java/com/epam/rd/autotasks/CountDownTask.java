@@ -11,7 +11,6 @@ public class CountDownTask implements Task {
             isFinished();
         }
     }
-
     public int getValue() {
         return value;
     }
