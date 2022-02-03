@@ -19,11 +19,12 @@ public class CompleteByRequestTask implements Task {
 
     @Override
     public boolean isFinished() {
-        if (currentTask == null)
+        if (currentTask == null) {
             return true;
-        else
+        } else {
             execute_pointer++;
-        return false;
+            return false;
+        }
     }
 
     public void complete() {
