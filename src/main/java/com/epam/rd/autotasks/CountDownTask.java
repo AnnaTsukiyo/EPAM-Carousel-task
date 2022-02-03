@@ -6,7 +6,7 @@ public class CountDownTask implements Task {
     public CountDownTask(int value) {
         if (value > 0) {
             getValue();
-        } else if (value < 0) {
+        } else if(value<0){
             value = 0;
             isFinished();
         }
@@ -18,10 +18,9 @@ public class CountDownTask implements Task {
 
     @Override
     public void execute() {
-        while (getValue() != 0) {
+        if (getValue() != 0 ) {
             value--;
-        }
-        if (getValue() == 0) {
+        } else {
             isFinished();
         }
     }

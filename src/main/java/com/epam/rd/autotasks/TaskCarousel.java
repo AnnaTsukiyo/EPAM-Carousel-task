@@ -3,6 +3,7 @@ package com.epam.rd.autotasks;
 import java.util.List;
 
 public class TaskCarousel {
+
     private int capacity;
     List taskArrayList;
 
@@ -13,12 +14,13 @@ public class TaskCarousel {
     }
 
     public boolean addTask(Task task) {
-        if (task == null || task.isFinished() || taskArrayList.size() < 0) {
+        if (task == null || task.isFinished() || taskArrayList.size() <= 0) {
             return false;
+        } else {
+            execute_pointer++;
+            taskArrayList.add(task);
+            return true;
         }
-        execute_pointer++;
-        taskArrayList.add(task);
-        return true;
     }
 
     public boolean execute() {
@@ -42,7 +44,7 @@ public class TaskCarousel {
     }
 
     public boolean isFull() {
-        if (capacity == 0 || taskArrayList.size() < 0) {
+        if (capacity == 0 && taskArrayList.size() < 0) {
             return true;
             //, который возвращает true если в карусели больше нет места для добавления другой задачи. В противном случае возвращает false.
         } else {
@@ -51,10 +53,10 @@ public class TaskCarousel {
     }
 
     public boolean isEmpty() {
-        if (execute_pointer != 0 || ! taskArrayList.isEmpty()) {               // возвращает true если в карусели нет задачи для выполнения.
-            return false;
-        } else {
+        if (execute_pointer == 0 || taskArrayList.isEmpty()) {               // возвращает true если в карусели нет задачи для выполнения.
             return true;
+        } else {
+            return false;
         }
     }
 
