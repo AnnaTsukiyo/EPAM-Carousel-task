@@ -2,13 +2,12 @@ package com.epam.rd.autotasks;
 
 public class CountDownTask implements Task {
     private int value;
-    private boolean runEd = false;
 
     public CountDownTask(int value) {
         if (value > 0) {
             getValue();
-        } else if (value < 0) {
-            final var b = this.value == 0;
+        } else if(value<0){
+            value = 0;
             isFinished();
         }
     }
@@ -19,9 +18,7 @@ public class CountDownTask implements Task {
 
     @Override
     public void execute() {
-        if (runEd) {
-            runEd = true;
-            getValue();
+        if (getValue() != 0 ) {
             value--;
         } else {
             isFinished();
