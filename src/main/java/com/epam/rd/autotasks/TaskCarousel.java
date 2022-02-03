@@ -14,7 +14,7 @@ public class TaskCarousel {
     }
 
     public boolean addTask(Task task) {
-        if (task == null || task.isFinished() || taskArrayList.size() <= 0 || capacity ==0) {
+        if (task == null || task.isFinished() || taskArrayList.size() < 0) {
             return false;
         } else {
             execute_pointer++;
@@ -22,6 +22,7 @@ public class TaskCarousel {
             return true;
         }
     }
+
 
     public boolean execute() {
         if (isEmpty())
@@ -55,11 +56,14 @@ public class TaskCarousel {
     public boolean isEmpty() {
         if (execute_pointer == 0 || taskArrayList.isEmpty()) {               // возвращает true если в карусели нет задачи для выполнения.
             return true;
-        }
+        } else {
             return false;
+            public void deleteTask ( int execute_pointer){
+                taskArrayList.remove(execute_pointer);
+            }
         }
-
-    public void deleteTask(int execute_pointer) {
+    }
+            public void deleteTask(int execute_pointer) {
         taskArrayList.remove(execute_pointer);
     }
 }
