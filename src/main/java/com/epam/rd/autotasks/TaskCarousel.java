@@ -58,9 +58,6 @@ public class TaskCarousel {
             return true;
         } else {
             return false;
-            public void deleteTask ( int execute_pointer){
-                taskArrayList.remove(execute_pointer);
-            }
         }
     }
             public void deleteTask(int execute_pointer) {
