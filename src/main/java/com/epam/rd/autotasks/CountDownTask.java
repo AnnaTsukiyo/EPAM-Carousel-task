@@ -1,31 +1,33 @@
 package com.epam.rd.autotasks;
 
 public class CountDownTask implements Task {
-    private int value;
+    public int value;
 
     public CountDownTask(int value) {
-        if (value > 0) {
-            getValue();
-        } else if(value<0){
-            value = 0;
+        this.value = value;
+        if (value < 0) this.value = 0;
+        else if (this.value == 0) {
             isFinished();
         }
     }
+
     public int getValue() {
         return value;
     }
 
+
     @Override
     public void execute() {
-        if (getValue() != 0 ) {
+        if (value > 0) {
             value--;
-        } else {
+        }
+        if (getValue() == 0) {
             isFinished();
         }
     }
 
     @Override
     public boolean isFinished() {
-        return getValue() == 0;
+        return value == 0;
     }
 }

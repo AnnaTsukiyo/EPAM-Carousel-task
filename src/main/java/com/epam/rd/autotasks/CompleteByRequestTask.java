@@ -1,33 +1,26 @@
 package com.epam.rd.autotasks;
 
+import java.util.Objects;
+
 public class CompleteByRequestTask implements Task {
-
-    Task currentTask;
-    private int execute_pointer;
-
-    public CompleteByRequestTask() {
-    }
+    String isComplete = "no";
+    String isExecute = "no";
+    String isSecondExecute = "no";
 
     @Override
     public void execute() {
-        if (currentTask != null && !currentTask.isFinished() ) {
-            currentTask.execute();
-        } else {
-            complete();
+        isExecute = "yes";
+        if (Objects.equals(isComplete, "yes")) {
+            isSecondExecute = "yes";
         }
     }
 
     @Override
     public boolean isFinished() {
-        if (currentTask == null)
-            return true;
-        else
-            execute_pointer++;
-        return false;
+        return Objects.equals(isComplete, "yes") && Objects.equals(isExecute, "yes") && Objects.equals(isSecondExecute, "yes");
     }
+
     public void complete() {
-        if (currentTask.isFinished() == true) {
-            currentTask.isFinished();
-        }
+        isComplete = "yes";
     }
 }
