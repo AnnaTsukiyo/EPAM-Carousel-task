@@ -10,7 +10,7 @@ public class CompleteByRequestTask implements Task {
 
     @Override
     public void execute() {
-        if (currentTask != null && !currentTask.isFinished()) {
+        if (currentTask != null && !currentTask.isFinished() ) {
             currentTask.execute();
         } else {
             complete();
